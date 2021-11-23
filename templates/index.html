@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>SistemaEmpleados</title>
+</head>
+<body>
+    <header>
+        <h1 style="text-align: center;">
+            Sistema empleados
+        </h1></header>
+        <br>
+        <a href="{{url_for('crear')}} " class="btn btn-success">
+            Ingresar nuevo empleado
+        </a>
+<br>
+<br>
+<div class="">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Genero</th>
+                <th>Fecha de nacimiento</th>
+                <th>Fecha deingreso</th>
+                <th>Salario basico</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for empleado in empleados %}
+            <tr>
+                <td>{{empleado[0]}}</td>
+                <td>{{empleado[1]}}</td>
+                <td>{{empleado[2]}}</td>
+                <td>{{empleado[3]}}</td>
+                <td>{{empleado[4]}}</td>
+                <td>{{empleado[5]}}</td>
+                <td>{{empleado[6]}}</td>
+                <td><a class="btn btn-primary" href="/editar/{{empleado[0]}}">Editar</a> | <a href="/destroy/{{empleado[0]}}" class="btn btn-danger">borrar</a> | <a href="/masInfo/{{empleado[0]}}" class="btn btn-info">ver mas</a> </td>
+            </tr>  
+            {% endfor %}
+            
+            <tr>
+                <td scope="row"></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

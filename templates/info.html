@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>SistemaEmpleados</title>
+    
+</head>
+<body>
+    <header>
+        {% for i in empleados  %}
+        <h1 style="text-align: center;">{{i[1]}}</h1>
+        {% endfor %}
+        
+    </header>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th class="">Nombre</th>
+                <th>Apellido</th>
+                <th>Genero</th>
+                <th>Fecha de nacimiento</th>
+                <th>Fecha deingreso</th>
+                <th>Salario basico</th>
+                <th>Edad</th>
+                <th>Antiguedad</th>
+                <th>prestaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                {% for empleado in empleados %}
+                <td>{{empleado[0]}}</td>
+                <td>{{empleado[1]}}</td>
+                <td>{{empleado[2]}}</td>
+                <td>{{empleado[3]}}</td>
+                <td>{{empleado[4]}}</td>
+                <td>{{empleado[5]}}</td>
+                <td>{{empleado[6]}}</td>
+                <td>{{today.year - empleado[4].year - ((today.month, today.day) < (empleado[4].month, empleado[4].day))}}</td>
+                <td>{{today.year - empleado[5].year - ((today.month, today.day) < (empleado[5].month, empleado[5].day))}}</td>
+                <td>{{((today.year - empleado[5].year - ((today.month, today.day) < (empleado[5].month, empleado[5].day)))*empleado[6])/12}}</td>
+                {% endfor %}
+            </tr>  
+            
+            
+            <tr>
+                <td scope="row"></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>

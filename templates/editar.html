@@ -1,0 +1,33 @@
+{% for empleado in empleados  %}
+<form action="/almacen_editar" method="post" enctype="multipart/form-data">
+    <label >ID</label>
+    <input type="number" name="txt_id" id="txt_id" value="{{empleado[0]}}" readonly>
+    <br>
+    <label for="txtNombre">Nombre:</label>  
+    <input type="text" name="txtNombre" id="txtNombre" value="{{empleado[1]}}">
+    <br>
+    <br>
+    <label for="txtApellido">Apellido:</label>
+    <input type="text" name="txtApellido" id="txtApellido" value="{{empleado[2]}}">
+    <br>
+    <br>
+    <label for="txtGenero">Genero: </label> 
+    <input type="text" name="txtGenero" id="txtGenero" value="{{empleado[3]}}">
+    <br>
+    <br>
+    <label for="dateNacimiento">Fecha de Nacimiento: </label>
+    <input type="date" name="dateNacimiento" id="dateNacimiento" value="{{empleado[4]}}">
+    <br>
+    <br>
+    <label for="dateIngreso">Fecha de ingreso:</label>
+    <input type="date" name="dateIngreso" id="dateIngreso" value="{{empleado[5]}}">
+    <br>
+    <br>
+     <label for="salario">Salario basico:</label> 
+    <input type="number" name="salario" id="salario" value="{{empleado[6]}}">
+    <br>
+    <br>
+    <input type="submit" value="Actualizar">
+</form>
+
+{% endfor %}
